@@ -1,535 +1,530 @@
-import React, { useState, useEffect } from 'react';
-import { MapPin, Droplets, TreePine, Globe, Users, Award, ChevronDown, Menu, X, CheckCircle, Phone, Mail, ExternalLink } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutet Environmental Engineering</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Inicializar los iconos de Lucide al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+    </script>
+    <style>
+        /* Tailwind CSS v3.4+ via CDN */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
 
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'services', 'about', 'courses', 'contact'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
+        /* Estilos personalizados para el fondo topográfico */
+        .topographic-bg {
+            background-image: repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255, 255, 255, 0.3) 20px,
+                    rgba(255, 255, 255, 0.3) 22px
+                  ),
+                  repeating-linear-gradient(
+                    135deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(255, 255, 255, 0.2) 30px,
+                    rgba(255, 255, 255, 0.2) 33px
+                  ),
+                  repeating-linear-gradient(
+                    to bottom,
+                    transparent,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.15) 40px,
+                    rgba(255, 255, 255, 0.15) 44px
+                  );
+            background-attachment: fixed;
         }
-      }
-      
-      setIsScrolled(window.scrollY > 50);
-    };
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdfa',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Asegura que el background attachment funcione */
+        .topographic-bg {
+            background-attachment: fixed;
+        }
+        /* Estilo para la silueta de montaña */
+        .mountain-silhouette {
+            clip-path: polygon(0% 100%, 10% 70%, 20% 80%, 30% 60%, 40% 75%, 50% 50%, 60% 65%, 70% 55%, 80% 70%, 90% 60%, 100% 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans">
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    <!-- Navegación -->
+    <nav id="nav" class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-emerald-800">Boutet Environmental</h1>
+                        <p class="text-xs text-emerald-600 -mt-1">Engineering & Consulting</p>
+                    </div>
+                </div>
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <button onclick="scrollToSection('home')" class="nav-link px-3 py-2 text-sm font-medium capitalize transition-colors text-gray-700 hover:text-emerald-600">Inicio</button>
+                        <button onclick="scrollToSection('services')" class="nav-link px-3 py-2 text-sm font-medium capitalize transition-colors text-gray-700 hover:text-emerald-600">Servicios</button>
+                        <button onclick="scrollToSection('about')" class="nav-link px-3 py-2 text-sm font-medium capitalize transition-colors text-gray-700 hover:text-emerald-600">Nosotros</button>
+                        <button onclick="scrollToSection('courses')" class="nav-link px-3 py-2 text-sm font-medium capitalize transition-colors text-gray-700 hover:text-emerald-600">Cursos</button>
+                        <button onclick="scrollToSection('contact')" class="nav-link px-3 py-2 text-sm font-medium capitalize transition-colors text-gray-700 hover:text-emerald-600">Contacto</button>
+                    </div>
+                </div>
 
-  const services = [
-    {
-      icon: <Droplets className="w-8 h-8" />,
-      title: "Hidrología y Cuencas",
-      description: "Análisis integral de cuencas hidrográficas, modelización hidrológica y gestión sostenible de recursos hídricos.",
-      features: ["Modelización hidrológica", "Análisis de caudales", "Gestión de riesgos hídricos"]
-    },
-    {
-      icon: <Globe className="w-8 h-8" />,
-      title: "Sistemas de Información Geográfica",
-      description: "Desarrollo de soluciones SIG personalizadas para análisis espacial y toma de decisiones ambientales.",
-      features: ["Análisis espacial", "Cartografía digital", "Sistemas de monitoreo"]
-    },
-    {
-      icon: <TreePine className="w-8 h-8" />,
-      title: "Ingeniería Forestal",
-      description: "Diseño de sistemas de manejo forestal sostenible y restauración ecológica de ecosistemas.",
-      features: ["Manejo forestal", "Restauración ecológica", "Evaluación de biomasa"]
-    },
-    {
-      icon: <Droplets className="w-8 h-8" />,
-      title: "Hidráulica Aplicada",
-      description: "Diseño y análisis de sistemas hidráulicos, estructuras de control y manejo de aguas superficiales.",
-      features: ["Diseño de estructuras", "Modelos hidráulicos", "Control de erosión"]
-    }
-  ];
-
-  const courses = [
-    {
-      title: "Análisis Hidrológico con SIG",
-      duration: "40 horas",
-      level: "Avanzado",
-      topics: ["Modelización hidrológica", "Análisis espacial", "Software especializado"],
-      price: "$1,200"
-    },
-    {
-      title: "Gestión de Cuencas Hidrográficas",
-      duration: "32 horas",
-      level: "Intermedio",
-      topics: ["Planificación integral", "Monitoreo ambiental", "Evaluación de impacto"],
-      price: "$950"
-    },
-    {
-      title: "Sistemas de Información Geográfica",
-      duration: "24 horas",
-      level: "Básico a Intermedio",
-      topics: ["Fundamentos SIG", "Análisis espacial", "Cartografía digital"],
-      price: "$750"
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: "Dr. María González",
-      role: "Directora de Proyectos Ambientales",
-      company: "Ministerio de Medio Ambiente",
-      content: "Boutet nos brindó soluciones técnicas innovadoras para la gestión de nuestra cuenca hidrográfica."
-    },
-    {
-      name: "Carlos Rodríguez",
-      role: "Gerente de Desarrollo",
-      company: "Forestal Sustentable S.A.",
-      content: "Su expertise en ingeniería forestal fue crucial para nuestros proyectos de reforestación."
-    },
-    {
-      name: "Ana Martínez",
-      role: "Ingeniera Ambiental",
-      company: "Consultora Ambiental",
-      content: "La formación que recibimos fue de excelente calidad y muy práctica."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Navigation */}
-      <nav className={`fixed top-0 w-full backdrop-blur-sm z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 shadow-lg' : 'bg-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-emerald-800">Boutet Environmental</h1>
-                <p className="text-xs text-emerald-600 -mt-1">Engineering & Consulting</p>
-              </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMenu()" id="menu-button" class="text-gray-700 hover:text-emerald-600">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
             </div>
-            
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                {['home', 'services', 'about', 'courses', 'contact'].map((item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item)}
-                    className={`px-3 py-2 text-sm font-medium capitalize transition-colors ${
-                      activeSection === item
-                        ? 'text-emerald-700 border-b-2 border-emerald-700'
-                        : 'text-gray-700 hover:text-emerald-600'
-                    }`}
-                  >
-                    {item === 'home' ? 'Inicio' : item === 'services' ? 'Servicios' : item === 'about' ? 'Nosotros' : item === 'courses' ? 'Cursos' : 'Contacto'}
-                  </button>
-                ))}
-              </div>
-            </div>
-            
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-emerald-600"
-              >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
         </div>
-        
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {['home', 'services', 'about', 'courses', 'contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-emerald-600 capitalize w-full text-left"
-                >
-                  {item === 'home' ? 'Inicio' : item === 'services' ? 'Servicios' : item === 'about' ? 'Nosotros' : item === 'courses' ? 'Cursos' : 'Contacto'}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900"></div>
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 15px,
-                rgba(255, 255, 255, 0.2) 15px,
-                rgba(255, 255, 255, 0.2) 17px
-              ),
-              repeating-linear-gradient(
-                135deg,
-                transparent,
-                transparent 25px,
-                rgba(255, 255, 255, 0.15) 25px,
-                rgba(255, 255, 255, 0.15) 28px
-              ),
-              repeating-linear-gradient(
-                to bottom,
-                transparent,
-                transparent 35px,
-                rgba(255, 255, 255, 0.1) 35px,
-                rgba(255, 255, 255, 0.1) 39px
-              )`,
-              backgroundAttachment: 'fixed',
-            }}
-          ></div>
-          <div 
-            className="absolute bottom-0 left-0 right-0 h-1/3 opacity-40"
-            style={{
-              background: `radial-gradient(ellipse at bottom, 
-                rgba(0, 0, 0, 0.5) 0%, 
-                rgba(0, 0, 0, 0.3) 60%, 
-                transparent 100%)`,
-              clipPath: 'polygon(0% 100%, 15% 65%, 30% 75%, 45% 55%, 60% 70%, 75% 50%, 90% 65%, 100% 100%)'
-            }}
-          ></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-5xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-              Ingeniería Ambiental
-              <span className="block text-emerald-300 mt-2">de Vanguardia</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-emerald-100 mb-8 leading-relaxed drop-shadow-md">
-              Consultoría especializada en hidrología, cuencas, SIG y servicios forestales con enfoque sostenible y tecnológico
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Nuestros Servicios
-              </button>
-              <button 
-                onClick={() => scrollToSection('courses')}
-                className="border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all hover:scale-105"
-              >
-                Cursos y Capacitación
-              </button>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button onclick="scrollToSection('home')" class="mobile-nav-btn block px-3 py-2 text-base font-medium text-gray-700 hover:text-emerald-600 capitalize w-full text-left">Inicio</button>
+                <button onclick="scrollToSection('services')" class="mobile-nav-btn block px-3 py-2 text-base font-medium text-gray-700 hover:text-emerald-600 capitalize w-full text-left">Servicios</button>
+                <button onclick="scrollToSection('about')" class="mobile-nav-btn block px-3 py-2 text-base font-medium text-gray-700 hover:text-emerald-600 capitalize w-full text-left">Nosotros</button>
+                <button onclick="scrollToSection('courses')" class="mobile-nav-btn block px-3 py-2 text-base font-medium text-gray-700 hover:text-emerald-600 capitalize w-full text-left">Cursos</button>
+                <button onclick="scrollToSection('contact')" class="mobile-nav-btn block px-3 py-2 text-base font-medium text-gray-700 hover:text-emerald-600 capitalize w-full text-left">Contacto</button>
             </div>
-          </div>
         </div>
-        
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-white/60" />
-        </div>
-      </section>
+    </nav>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Nuestros <span className="text-emerald-600">Servicios</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Soluciones integrales en ingeniería ambiental con enfoque científico y tecnológico
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="group p-8 bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100">
-                <div className="text-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-emerald-500" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+    <!-- Sección Hero -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900"></div>
+            <div class="absolute inset-0 opacity-20 topographic-bg"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-1/3 opacity-30 bg-gradient-to-t from-black/40 to-transparent mountain-silhouette"></div>
         </div>
-      </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Sobre <span className="text-emerald-600">Boutet</span>
-              </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Con más de 15 años de experiencia en ingeniería ambiental, Boutet Environmental Engineering 
-                se ha consolidado como referente en consultoría especializada en hidrología, gestión de 
-                cuencas, sistemas de información geográfica y servicios forestales.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Nuestro equipo de profesionales altamente calificados combina conocimiento técnico 
-                con experiencia práctica para ofrecer soluciones innovadoras y sostenibles a 
-                nuestros clientes.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <Award className="h-8 w-8 text-emerald-600 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">15+</div>
-                  <div className="text-sm text-gray-600">Años de Experiencia</div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <Users className="h-8 w-8 text-emerald-600 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-gray-900">50+</div>
-                  <div className="text-sm text-gray-600">Proyectos Completados</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="relative z-10">
-                <img 
-                  src="https://placehold.co/600x700/e8f5e8/2d5a2d?text=Environmental+Team+Field+Work" 
-                  alt="Environmental Team in Field" 
-                  className="rounded-2xl shadow-2xl w-full h-auto"
-                />
-              </div>
-              <div className="absolute -top-4 -right-4 w-full h-full bg-emerald-200 rounded-2xl -z-10"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Lo que dicen <span className="text-emerald-600">nuestros clientes</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experiencias reales de profesionales que han confiado en nuestros servicios
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-emerald-50 to-white p-6 rounded-2xl shadow-lg border border-emerald-100">
-                <div className="text-emerald-500 mb-4">
-                  <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                  </svg>
-                </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
-                <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-emerald-600">{testimonial.role}</div>
-                  <div className="text-sm text-gray-500">{testimonial.company}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Courses Section */}
-      <section id="courses" className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Cursos y <span className="text-emerald-600">Capacitación</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Formación especializada para profesionales del sector ambiental
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {courses.map((course, index) => (
-              <div key={index} className="group bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100 overflow-hidden">
-                <div className="p-8">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">{course.title}</h3>
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
-                    <span className="flex items-center gap-1">
-                      <Droplets className="w-4 h-4" />
-                      {course.duration}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4" />
-                      {course.level}
-                    </span>
-                  </div>
-                  <div className="text-2xl font-bold text-emerald-600 mb-4">{course.price}</div>
-                  <ul className="space-y-2 mb-6">
-                    {course.topics.map((topic, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-emerald-500" />
-                        {topic}
-                      </li>
-                    ))}
-                  </ul>
-                  <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2">
-                    Inscribirse
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Contáctanos
-            </h2>
-            <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              ¿Tienes un proyecto en mente? Estamos aquí para ayudarte
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-6">Información de Contacto</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 text-emerald-100">
-                  <MapPin className="w-6 h-6 text-emerald-300" />
-                  <span>Av. Principal 1234, Oficina 501, Ciudad Ambiental</span>
-                </div>
-                <div className="flex items-center gap-4 text-emerald-100">
-                  <Mail className="w-6 h-6 text-emerald-300" />
-                  <span>info@boutetenvironmental.com</span>
-                </div>
-                <div className="flex items-center gap-4 text-emerald-100">
-                  <Phone className="w-6 h-6 text-emerald-300" />
-                  <span>+1 (555) 123-4567</span>
-                </div>
-              </div>
-              
-              <div className="mt-8 p-6 bg-emerald-800/50 rounded-xl">
-                <h4 className="text-lg font-semibold text-white mb-3">Horarios de Atención</h4>
-                <p className="text-emerald-100">
-                  Lunes a Viernes: 8:00 AM - 6:00 PM<br />
-                  Sábados: 9:00 AM - 2:00 PM
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                    Ingeniería Ambiental
+                    <span class="block text-emerald-300">de Vanguardia</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-emerald-100 mb-8 leading-relaxed drop-shadow-md">
+                    Consultoría especializada en hidrología, cuencas, SIG y servicios forestales con enfoque sostenible y tecnológico
                 </p>
-              </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('services')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+                        Nuestros Servicios
+                    </button>
+                    <button onclick="scrollToSection('courses')" class="border-2 border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                        Cursos y Capacitación
+                    </button>
+                </div>
             </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <form className="space-y-6">
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Nombre completo"
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-emerald-300/30 text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-emerald-300/30 text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Asunto"
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-emerald-300/30 text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400"
-                  />
-                </div>
-                <div>
-                  <textarea
-                    rows="4"
-                    placeholder="Mensaje"
-                    className="w-full px-4 py-3 rounded-lg bg-white/20 border border-emerald-300/30 text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 resize-none"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold transition-colors"
-                >
-                  Enviar Mensaje
-                </button>
-              </form>
-            </div>
-          </div>
         </div>
-      </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold text-emerald-400 mb-4">Boutet Environmental</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Líderes en ingeniería ambiental con soluciones innovadoras para un futuro sostenible.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Servicios</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Hidrología y Cuencas</li>
-                <li>Sistemas de Información Geográfica</li>
-                <li>Ingeniería Forestal</li>
-                <li>Hidráulica Aplicada</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Cursos</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>Análisis Hidrológico</li>
-                <li>Gestión de Cuencas</li>
-                <li>Sistemas SIG</li>
-                <li>Formación Técnica</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Contacto</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li>info@boutetenvironmental.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>Av. Principal 1234, Oficina 501</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Boutet Environmental Engineering. Todos los derechos reservados.</p>
-          </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="h-8 w-8 text-white/60"></i>
         </div>
-      </footer>
-    </div>
-  );
-};
+    </section>
 
-export default App;
+    <!-- Sección Servicios -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Nuestros <span class="text-emerald-600">Servicios</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Soluciones integrales en ingeniería ambiental con enfoque científico y tecnológico
+                </p>
+            </div>
 
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group p-8 bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100">
+                    <div class="text-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="droplets" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Hidrología y Cuencas</h3>
+                    <p class="text-gray-600 leading-relaxed">Análisis integral de cuencas hidrográficas, modelización hidrológica y gestión sostenible de recursos hídricos.</p>
+                </div>
+                <div class="group p-8 bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100">
+                    <div class="text-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="globe" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Sistemas de Información Geográfica</h3>
+                    <p class="text-gray-600 leading-relaxed">Desarrollo de soluciones SIG personalizadas para análisis espacial y toma de decisiones ambientales.</p>
+                </div>
+                <div class="group p-8 bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100">
+                    <div class="text-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="tree-pine" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Ingeniería Forestal</h3>
+                    <p class="text-gray-600 leading-relaxed">Diseño de sistemas de manejo forestal sostenible y restauración ecológica de ecosistemas.</p>
+                </div>
+                <div class="group p-8 bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100">
+                    <div class="text-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="droplets" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Hidráulica Aplicada</h3>
+                    <p class="text-gray-600 leading-relaxed">Diseño y análisis de sistemas hidráulicos, estructuras de control y manejo de aguas superficiales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="about" class="py-20 bg-gradient-to-br from-emerald-50 to-teal-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        Sobre <span class="text-emerald-600">Boutet</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Con más de 15 años de experiencia en ingeniería ambiental, Boutet Environmental Engineering
+                        se ha consolidado como referente en consultoría especializada en hidrología, gestión de
+                        cuencas, sistemas de información geográfica y servicios forestales.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Nuestro equipo de profesionales altamente calificados combina conocimiento técnico
+                        con experiencia práctica para ofrecer soluciones innovadoras y sostenibles a
+                        nuestros clientes.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                            <i data-lucide="award" class="h-8 w-8 text-emerald-600 mx-auto mb-2"></i>
+                            <div class="text-2xl font-bold text-gray-900">15+</div>
+                            <div class="text-sm text-gray-600">Años de Experiencia</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                            <i data-lucide="users" class="h-8 w-8 text-emerald-600 mx-auto mb-2"></i>
+                            <div class="text-2xl font-bold text-gray-900">50+</div>
+                            <div class="text-sm text-gray-600">Proyectos Completados</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img
+                            src="https://placehold.co/600x700/e8f5e8/2d5a2d?text=Environmental+Team+Field+Work"
+                            alt="Environmental Team in Field"
+                            class="rounded-2xl shadow-2xl"
+                        />
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-full h-full bg-emerald-200 rounded-2xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cursos -->
+    <section id="courses" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Cursos y <span class="text-emerald-600">Capacitación</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Formación especializada para profesionales del sector ambiental
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100 overflow-hidden">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Análisis Hidrológico con SIG</h3>
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-600">
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="droplets" class="w-4 h-4"></i>
+                                40 horas
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Avanzado
+                            </span>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Modelización hidrológica
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Análisis espacial
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Software especializado
+                            </li>
+                        </ul>
+                        <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Inscribirse
+                        </button>
+                    </div>
+                </div>
+                <div class="group bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100 overflow-hidden">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Gestión de Cuencas Hidrográficas</h3>
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-600">
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="droplets" class="w-4 h-4"></i>
+                                32 horas
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Intermedio
+                            </span>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Planificación integral
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Monitoreo ambiental
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Evaluación de impacto
+                            </li>
+                        </ul>
+                        <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Inscribirse
+                        </button>
+                    </div>
+                </div>
+                <div class="group bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-emerald-100 overflow-hidden">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Sistemas de Información Geográfica</h3>
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-600">
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="droplets" class="w-4 h-4"></i>
+                                24 horas
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                Básico a Intermedio
+                            </span>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Fundamentos SIG
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Análisis espacial
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-600">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500"></i>
+                                Cartografía digital
+                            </li>
+                        </ul>
+                        <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Inscribirse
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Contáctanos
+                </h2>
+                <p class="text-xl text-emerald-100 max-w-3xl mx-auto">
+                    ¿Tienes un proyecto en mente? Estamos aquí para ayudarte
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-6">Información de Contacto</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-emerald-100">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-emerald-300"></i>
+                            <span>Av. Principal 1234, Oficina 501, Ciudad Ambiental</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-emerald-100">
+                            <i data-lucide="droplets" class="w-6 h-6 text-emerald-300"></i>
+                            <span>info@boutetenvironmental.com</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-emerald-100">
+                            <i data-lucide="tree-pine" class="w-6 h-6 text-emerald-300"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-6 bg-emerald-800/50 rounded-xl">
+                        <h4 class="text-lg font-semibold text-white mb-3">Horarios de Atención</h4>
+                        <p class="text-emerald-100">
+                            Lunes a Viernes: 8:00 AM - 6:00 PM<br />
+                            Sábados: 9:00 AM - 2:00 PM
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                    <form class="space-y-6">
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Nombre completo"
+                                class="w-full px-4 py-3 rounded-lg bg-white/20 border border-emerald-300/30 text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                class="w-full px-4 py-3 rounded-lg bg-white/20 border border-emerald-300/30 text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                            />
+                        </div>
+                        <div>
+                            <textarea
+                                rows="4"
+                                placeholder="Mensaje"
+                                class="w-full px-4 py-3 rounded-lg bg-white/20 border border-emerald-300/30 text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 resize-none"
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-semibold transition-colors"
+                        >
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">Boutet Environmental</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Líderes en ingeniería ambiental con soluciones innovadoras para un futuro sostenible.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Hidrología y Cuencas</li>
+                        <li>Sistemas de Información Geográfica</li>
+                        <li>Ingeniería Forestal</li>
+                        <li>Hidráulica Aplicada</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>info@boutetenvironmental.com</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>Av. Principal 1234, Oficina 501</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Boutet Environmental Engineering. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let isMenuOpen = false;
+
+        // Función para alternar el menú móvil
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.querySelector('#menu-button i');
+            isMenuOpen = !isMenuOpen;
+            menu.classList.toggle('hidden', !isMenuOpen);
+            icon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
+            lucide.createIcons(); // Vuelve a inicializar los iconos
+        }
+
+        // Función para desplazarse a una sección
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            // Cierra el menú móvil si está abierto
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+        }
+
+        // Función para actualizar la sección activa en la navegación
+        function updateActiveNav() {
+            const sections = ['home', 'services', 'about', 'courses', 'contact'];
+            const scrollPosition = window.scrollY + 100;
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-btn');
+
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        // Remover clase activa de todos
+                        navLinks.forEach(link => link.classList.remove('text-emerald-700', 'border-b-2', 'border-emerald-700'));
+                        mobileNavLinks.forEach(link => link.classList.remove('text-emerald-700'));
+
+                        // Agregar clase activa al link correspondiente
+                        const activeLink = document.querySelector(`.nav-link[onclick="scrollToSection('${section}')"]`);
+                        const activeMobileLink = document.querySelector(`.mobile-nav-btn[onclick="scrollToSection('${section}')"]`);
+                        if (activeLink) activeLink.classList.add('text-emerald-700', 'border-b-2', 'border-emerald-700');
+                        if (activeMobileLink) activeMobileLink.classList.add('text-emerald-700');
+                    }
+                }
+            });
+        }
+
+        // Escuchar scroll para actualizar la navegación
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Inicializar la navegación activa al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateActiveNav();
+            lucide.createIcons(); // Inicializar iconos al cargar
+        });
+    </script>
+</body>
+</html>
