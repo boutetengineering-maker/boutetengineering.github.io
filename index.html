@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutet Environmental Engineering</title>
+
+    <!-- Favicon desde Google Drive -->
+    <link rel="icon" type="image/png"
+          href="https://drive.google.com/uc?export=view&id=16tqucKDhPE-C91r7FnOKfRdwMyFihz5f">
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         // Inicializar los iconos de Lucide al cargar la página
@@ -11,12 +17,33 @@
             lucide.createIcons();
         });
     </script>
-    <style>
-        /* Tailwind CSS v3.4+ via CDN */
-        @tailwind base;
-        @tailwind components;
-        @tailwind utilities;
 
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdfa',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
         /* Estilos personalizados para el fondo topográfico */
         .topographic-bg {
             background-image: repeating-linear-gradient(
@@ -42,35 +69,7 @@
                   );
             background-attachment: fixed;
         }
-    </style>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        emerald: {
-                            50: '#f0fdfa',
-                            100: '#d1fae5',
-                            200: '#a7f3d0',
-                            300: '#6ee7b7',
-                            400: '#34d399',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#064e3b',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Asegura que el background attachment funcione */
-        .topographic-bg {
-            background-attachment: fixed;
-        }
+
         /* Estilo para la silueta de montaña */
         .mountain-silhouette {
             clip-path: polygon(0% 100%, 10% 70%, 20% 80%, 30% 60%, 40% 75%, 50% 50%, 60% 65%, 70% 55%, 80% 70%, 90% 60%, 100% 100%);
@@ -84,9 +83,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <h1 class="text-2xl font-bold text-emerald-800">Boutet Environmental</h1>
-                        <p class="text-xs text-emerald-600 -mt-1">Engineering & Consulting</p>
+                    <div class="flex-shrink-0 flex items-center gap-3">
+                        <!-- LOGO desde Google Drive -->
+                        <img
+                            src="https://drive.google.com/uc?export=view&id=16tqucKDhPE-C91r7FnOKfRdwMyFihz5f"
+                            alt="Boutet Environmental Engineering Logo"
+                            class="h-12 w-auto object-contain"
+                        />
+                        <div>
+                            <h1 class="text-2xl font-bold text-emerald-800">Boutet Environmental</h1>
+                            <p class="text-xs text-emerald-600 -mt-1">Engineering & Consulting</p>
+                        </div>
                     </div>
                 </div>
 
@@ -378,11 +385,11 @@
                             <span>Av. Principal 1234, Oficina 501, Ciudad Ambiental</span>
                         </div>
                         <div class="flex items-center gap-4 text-emerald-100">
-                            <i data-lucide="droplets" class="w-6 h-6 text-emerald-300"></i>
+                            <i data-lucide="mail" class="w-6 h-6 text-emerald-300"></i>
                             <span>info@boutetenvironmental.com</span>
                         </div>
                         <div class="flex items-center gap-4 text-emerald-100">
-                            <i data-lucide="tree-pine" class="w-6 h-6 text-emerald-300"></i>
+                            <i data-lucide="phone" class="w-6 h-6 text-emerald-300"></i>
                             <span>+1 (555) 123-4567</span>
                         </div>
                     </div>
@@ -436,7 +443,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">Boutet Environmental</h3>
+                    <!-- Logo también en el footer -->
+                    <img
+                        src="https://drive.google.com/uc?export=view&id=16tqucKDhPE-C91r7FnOKfRdwMyFihz5f"
+                        alt="Boutet Environmental Logo"
+                        class="h-12 w-auto mb-4"
+                    />
                     <p class="text-gray-400 leading-relaxed">
                         Líderes en ingeniería ambiental con soluciones innovadoras para un futuro sostenible.
                     </p>
@@ -528,3 +540,4 @@
     </script>
 </body>
 </html>
+
