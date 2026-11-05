@@ -1091,6 +1091,66 @@ section[id] {
     }
 }
 
+
+/* ==========================================
+   BOUTET WEB 2.0
+   RESTAURAR IMÁGENES ORIGINALES DE CURSOS
+========================================== */
+
+#courses .course-card {
+    overflow: hidden;
+}
+
+#courses .course-card::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    height: 190px;
+    margin: -27px -27px 24px;
+    background-color: #e7f3eb;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #e2eae3;
+    transition: transform 0.35s ease;
+}
+
+/* Curso 1 */
+#courses .course-card:nth-child(1)::before {
+    background-image: url("https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Curso_1.png");
+}
+
+/* Curso 2 */
+#courses .course-card:nth-child(2)::before {
+    background-image: url("https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Curso_2.png");
+}
+
+/* Curso 3 */
+#courses .course-card:nth-child(3)::before {
+    background-image: url("https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Curso_3.png");
+}
+
+/* Curso 4 */
+#courses .course-card:nth-child(4)::before {
+    background-image: url("https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Curso_4.png");
+}
+
+/* Curso 5 */
+#courses .course-card:nth-child(5)::before {
+    background-image: url("https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Curso_5.png");
+}
+
+/* Curso 6 */
+#courses .course-card:nth-child(6)::before {
+    background-image: url("https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Curso_6.png");
+}
+
+@media (max-width: 530px) {
+    #courses .course-card::before {
+        height: 200px;
+    }
+}
+   
 </style>
 </head>
 
