@@ -1,879 +1,2245 @@
+
 <!DOCTYPE html>
 <html lang="es">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <meta content="#0e241b" name="theme-color"/>
-  <meta content="Boutet Environmental Engineering &amp; Consulting: hidrología, SIG, teledetección, modelación climática, gestión ambiental y capacitación técnica en Panamá." name="description"/>
-  <title>
-   Boutet Environmental | Ingeniería, SIG y Tecnología
-  </title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Syne:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
-  <script defer="" src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js">
-  </script>
-  <style>
-   :root{--forest:#0e241b;--green:#168548;--mint:#cce9d6;--paper:#f6f8f5;--ink:#18251f;--muted:#64736b}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden}h1,h2,h3,h4{font-family:Syne,sans-serif;line-height:1.12}a{text-decoration:none;color:inherit}button,input,textarea{font:inherit}button{cursor:pointer}img{max-width:100%}.container{width:min(1180px,calc(100% - 40px));margin:auto}.eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--green);font-size:.77rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.eyebrow:before{content:'';height:2px;width:24px;background:currentColor}.section{padding:104px 0}.section-head{max-width:760px;margin:0 auto 44px;text-align:center}.section-head h2{font-size:clamp(2rem,4.2vw,3.25rem);margin:16px 0}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.7}.accent{color:var(--green)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 23px;border-radius:9px;font-weight:800;transition:.25s;border:1px solid transparent}.btn-primary{background:var(--green);color:white}.btn-primary:hover{background:#0d6b39;transform:translateY(-2px)}.btn-outline{color:white;border-color:#ffffff91;background:#ffffff12}.btn-outline:hover{background:#ffffff2a}.btn-light{color:var(--forest);background:white}.icon{width:22px;height:22px;flex-shrink:0}.nav{height:84px;position:fixed;top:0;left:0;right:0;z-index:100;background:#fffefbf5;backdrop-filter:blur(18px);border-bottom:1px solid #e6ebe6}.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;flex-shrink:0}.brand img{width:auto;height:62px;max-width:190px;object-fit:contain}.nav-links{display:flex;align-items:center;gap:30px}.nav-links a{font-weight:700;font-size:.91rem;color:#34443b;transition:color .2s}.nav-links a:hover,.nav-links a.active{color:var(--green)}.nav-cta{padding:11px 17px;background:var(--forest);color:white!important;border-radius:7px}.menu-toggle{display:none;background:none;border:0;color:var(--forest)}.hero{min-height:720px;min-height:100svh;position:relative;display:flex;align-items:center;color:white;padding:135px 0 95px;background:var(--forest)}.hero:before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(5,28,20,.94) 0%,rgba(6,35,25,.83) 40%,rgba(6,35,25,.22) 100%),url('https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/portada-boutet.png');background-size:cover;background-position:center}.hero:after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(5,26,18,.6),transparent 34%)}.hero-content{position:relative;z-index:1}.hero .eyebrow{color:#9ce6b8}.hero h1{font-size:clamp(2.8rem,6.2vw,5.6rem);max-width:900px;letter-spacing:-.045em;margin:20px 0 24px}.hero h1 span{color:#a6e4b8}.hero p{max-width:650px;font-size:clamp(1rem,1.8vw,1.24rem);line-height:1.8;color:#e4f0e8}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}.hero-bottom{display:flex;gap:32px;flex-wrap:wrap;margin-top:68px;color:#e1f2e7;font-size:.87rem}.hero-bottom span{display:flex;gap:9px;align-items:center}.hero-bottom svg{color:#9fe6ba}.stats{background:var(--forest);color:white;padding:28px 0;border-top:1px solid #ffffff26}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.stat{padding:10px 25px;border-right:1px solid #ffffff27}.stat:last-child{border:0}.stat strong{font-family:Syne;font-size:2.1rem;display:block;color:#a5e5b9}.stat small{color:#d3e0d6}.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.service-card,.course-card,.project-card{background:white;border:1px solid #e2eae3;border-radius:15px;box-shadow:0 8px 35px #17362609;transition:transform .25s,box-shadow .25s}.service-card:hover,.course-card:hover,.project-card:hover{transform:translateY(-5px);box-shadow:0 18px 45px #17362618}.service-card{padding:30px 25px}.service-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:13px;background:#e7f5eb;color:var(--green)}.service-icon svg{width:28px;height:28px}.service-card h3{font-size:1.15rem;min-height:76px;margin:24px 0 12px}.service-card p,.course-card li,.project-card p{color:var(--muted);line-height:1.7;font-size:.94rem}.about{background:#eaf3ec}.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:65px;align-items:center}.about h2{font-size:clamp(2rem,4vw,3.2rem)}.about p{color:#53665a;line-height:1.85}.about-art{min-height:370px;background:linear-gradient(145deg,#103c2b,#1c8050);border-radius:20px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.about-art:before{content:'';position:absolute;inset:-25%;background:repeating-radial-gradient(ellipse at 70% 60%,transparent 0 24px,#ffffff16 25px 26px);transform:rotate(-20deg)}.about-art img{position:relative;width:min(65%,330px);filter:drop-shadow(0 18px 28px #001e1690);background:#fffffff0;border-radius:20px;padding:22px}.about-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}.about-points div{background:#fff;padding:18px;border-radius:10px;font-weight:700;font-size:.91rem}.about-points svg{color:var(--green);vertical-align:middle;margin-right:7px}.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.course-card{padding:27px;display:flex;flex-direction:column}.course-top{display:flex;align-items:center;gap:14px;margin-bottom:18px}.course-top .service-icon{width:48px;height:48px}.course-top small{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--green)}.course-card h3{font-size:1.28rem;min-height:65px;margin:0 0 17px}.course-meta{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:17px}.course-meta span{background:#edf5ef;border-radius:100px;padding:7px 10px;font-size:.77rem;font-weight:700;color:#366449}.course-card ul{padding-left:20px;margin:0 0 22px;flex:1}.course-card li{margin-bottom:9px}.course-card .btn{width:100%;padding:12px}.projects{background:var(--forest);color:white}.projects .section-head p{color:#bdd1c3}.projects .eyebrow{color:#9ee6b6}.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.project-card{background:#173b2b;border-color:#ffffff20;overflow:hidden}.project-visual{height:160px;background:radial-gradient(circle at 80% 30%,#4b9d69,#123e2b 60%);display:flex;align-items:center;justify-content:center;position:relative}.project-visual:before{content:'';position:absolute;inset:0;background:repeating-radial-gradient(ellipse at 50% 50%,transparent 0 20px,#ffffff1a 21px 22px)}.project-visual svg{width:65px;height:65px;color:#b9edca;position:relative}.project-card .project-copy{padding:23px}.project-card h3{font-size:1.17rem}.project-card p{color:#c4d7ca}.tech{background:#f3f8f3;padding:76px 0;overflow:hidden}.tech h2{text-align:center;font-size:clamp(1.6rem,3.3vw,2.5rem);margin:14px 0 35px}.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}.marquee-track{display:flex;width:max-content;animation:marquee 48s linear infinite}.marquee:hover .marquee-track{animation-play-state:paused}.logo-set{display:flex;align-items:center;gap:20px;padding-right:20px;flex-shrink:0}.logo-tile{width:150px;height:105px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:9px;background:white;border:1px solid #e1ebe3;border-radius:13px;padding:12px}.logo-tile img{height:54px;width:110px;object-fit:contain}.logo-tile span{font-size:.72rem;color:#53685a;font-weight:700;text-align:center}@keyframes marquee{to{transform:translateX(-50%)}}.contact{background:linear-gradient(130deg,#0b2b1e,#14563b);color:white}.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}.contact h2{font-size:clamp(2rem,4vw,3rem)}.contact p{line-height:1.8;color:#c9dfd0}.contact-item{display:flex;align-items:center;gap:13px;margin:20px 0;color:#e0f1e5;overflow-wrap:anywhere}.contact-item svg{color:#9de5b7}.contact-form{background:#ffffff12;border:1px solid #ffffff25;padding:32px;border-radius:17px}.field{display:block;margin-bottom:15px}.field span{display:block;font-size:.82rem;margin-bottom:7px;font-weight:700}.field input,.field textarea{display:block;width:100%;border:1px solid #ffffff4b;border-radius:8px;background:#ffffffec;padding:13px;color:#14271c;outline:none}.field input:focus,.field textarea:focus{border-color:#73e2a1;box-shadow:0 0 0 3px #73e2a133}.contact-form .btn{width:100%}.footer{background:#091b13;color:#c4d5ca;padding:54px 0 20px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}.footer h3,.footer h4{color:white}.footer p,.footer a{line-height:1.8;color:#b9c9be}.footer a:hover{color:white}.footer ul{list-style:none;padding:0}.footer li{margin:8px 0}.copyright{margin-top:35px;border-top:1px solid #ffffff20;padding-top:18px;font-size:.8rem;text-align:center;color:#a9b9ae}section[id]{scroll-margin-top:80px}
-@media(max-width:1000px){.services-grid{grid-template-columns:repeat(2,1fr)}.courses-grid,.projects-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:30px}.nav-links{gap:16px}}@media(max-width:760px){.nav{height:74px}.brand img{height:55px;max-width:160px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:white;padding:22px;box-shadow:0 20px 30px #0002;flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:13px 8px}.nav-cta{text-align:center;margin-top:10px}.hero{min-height:740px;padding:125px 0 75px}.hero:before{background-image:linear-gradient(90deg,rgba(5,28,20,.9),rgba(6,35,25,.55)),url('https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/portada-boutet.png');background-position:58% center}.hero-bottom{gap:14px;margin-top:45px}.section{padding:70px 0}.about-grid,.contact-grid{grid-template-columns:1fr}.about-art{min-height:300px}.footer-grid{grid-template-columns:1fr 1fr}.stats-grid{gap:0}.stat{padding:10px}.stat strong{font-size:1.55rem}.stat small{font-size:.72rem}.logo-tile{width:125px;height:96px}.logo-tile img{height:46px;width:95px}}@media(max-width:530px){.container{width:min(100% - 30px,1180px)}.hero h1{font-size:clamp(2.35rem,10vw,3.4rem)}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.services-grid,.courses-grid,.projects-grid{grid-template-columns:1fr}.service-card h3,.course-card h3{min-height:0}.about-points{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.contact-form{padding:20px}.stats-grid{grid-template-columns:repeat(3,1fr)}.stat strong{font-size:1.35rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee-track{animation:none}.btn,.service-card,.course-card,.project-card{transition:none}}
-  </style>
- </head>
- <body>
-  <nav class="nav">
-   <div class="container nav-inner">
-    <a aria-label="Boutet - Inicio" class="brand" href="#home">
-     <img alt="Boutet Environmental Engineering" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/logo01.png"/>
-    </a>
-    <button aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menu-toggle">
-     <i data-lucide="menu">
-     </i>
-    </button>
-    <div class="nav-links" id="nav-links">
-     <a href="#home">
-      Inicio
-     </a>
-     <a href="#services">
-      Servicios
-     </a>
-     <a href="#about">
-      Nosotros
-     </a>
-     <a href="#courses">
-      Cursos
-     </a>
-     <a href="#projects">
-      Proyectos
-     </a>
-     <a href="#technologies">
-      Tecnologías
-     </a>
-     <a class="nav-cta" href="#contact">
-      Contáctanos
-     </a>
-    </div>
-   </div>
-  </nav>
-  <section class="hero" id="home">
-   <div class="container hero-content">
-    <div class="eyebrow">
-     Ingeniería · Geociencias · Innovación
-    </div>
-    <h1>
-     Soluciones técnicas para
-     <span>
-      desafíos ambientales reales.
-     </span>
-    </h1>
-    <p>
-     Consultoría integral en hidrología, geociencia, sistemas de información geográfica, análisis climático, modelación y gestión ambiental. Convertimos datos en decisiones.
-    </p>
-    <div class="hero-actions">
-     <a class="btn btn-primary" href="#services">
-      Explorar servicios
-      <i class="icon" data-lucide="arrow-up-right">
-      </i>
-     </a>
-     <a class="btn btn-outline" href="#contact">
-      Hablemos de tu proyecto
-      <i class="icon" data-lucide="arrow-right">
-      </i>
-     </a>
-    </div>
-    <div class="hero-bottom">
-     <span>
-      <i class="icon" data-lucide="map-pin">
-      </i>
-      Panamá
-     </span>
-     <span>
-      <i class="icon" data-lucide="satellite">
-      </i>
-      Tecnología geoespacial
-     </span>
-     <span>
-      <i class="icon" data-lucide="leaf">
-      </i>
-      Soluciones sostenibles
-     </span>
-    </div>
-   </div>
-  </section>
-  <div class="stats">
-   <div class="container stats-grid">
-    <div class="stat">
-     <strong>
-      7+
-     </strong>
-     <small>
-      Años de experiencia
-     </small>
-    </div>
-    <div class="stat">
-     <strong>
-      20+
-     </strong>
-     <small>
-      Proyectos completados
-     </small>
-    </div>
-    <div class="stat">
-     <strong>
-      6
-     </strong>
-     <small>
-      Áreas de capacitación
-     </small>
-    </div>
-   </div>
-  </div>
-  <section class="section" id="services">
-   <div class="container">
-    <div class="section-head">
-     <div class="eyebrow">
-      Lo que hacemos
-     </div>
-     <h2>
-      Ingeniería ambiental con
-      <span class="accent">
-       visión tecnológica.
-      </span>
-     </h2>
-     <p>
-      Soluciones integrales con enfoque científico y tecnológico para comprender, gestionar y proteger el territorio.
-     </p>
-    </div>
-    <div class="services-grid">
-     <article class="service-card">
-      <div class="service-icon">
-       <i data-lucide="droplets">
-       </i>
-      </div>
-      <h3>
-       Hidrología y Modelación de Cuencas
-      </h3>
-      <p>
-       Modelación hidrológica e hidráulica, análisis de cuencas y evaluación de riesgos hídricos.
-      </p>
-     </article>
-     <article class="service-card">
-      <div class="service-icon">
-       <i data-lucide="globe-2">
-       </i>
-      </div>
-      <h3>
-       Sistemas de Información Geográfica y Automatización
-      </h3>
-      <p>
-       Integración de datos, análisis espacial y automatización de procesos geoespaciales.
-      </p>
-     </article>
-     <article class="service-card">
-      <div class="service-icon">
-       <i data-lucide="satellite">
-       </i>
-      </div>
-      <h3>
-       Análisis Satelital y Modelación Climática
-      </h3>
-      <p>
-       Procesamiento de imágenes, sensores remotos, datos FIRMS y análisis climático.
-      </p>
-     </article>
-     <article class="service-card">
-      <div class="service-icon">
-       <i data-lucide="trees">
-       </i>
-      </div>
-      <h3>
-       Ingeniería Forestal y Gestión de Ecosistemas
-      </h3>
-      <p>
-       Planificación forestal, manejo sostenible y conservación ecológica.
-      </p>
-     </article>
-    </div>
-   </div>
-  </section>
-  <section class="section about" id="about">
-   <div class="container about-grid">
-    <div>
-     <div class="eyebrow">
-      Quiénes somos
-     </div>
-     <h2>
-      Conocimiento técnico.
-      <span class="accent">
-       Impacto ambiental.
-      </span>
-     </h2>
-     <p>
-      Con más de 7 años de experiencia, Boutet Environmental Engineering se ha posicionado como un referente en consultoría especializada en hidrología, gestión de cuencas, SIG y servicios forestales.
-     </p>
-     <p>
-      Nuestro equipo combina experiencia técnica, innovación y enfoque sostenible para ofrecer soluciones ambientales de alto impacto.
-     </p>
-     <div class="about-points">
-      <div>
-       <i class="icon" data-lucide="check-circle-2">
-       </i>
-       Enfoque científico
-      </div>
-      <div>
-       <i class="icon" data-lucide="check-circle-2">
-       </i>
-       Análisis geoespacial
-      </div>
-      <div>
-       <i class="icon" data-lucide="check-circle-2">
-       </i>
-       Innovación aplicada
-      </div>
-      <div>
-       <i class="icon" data-lucide="check-circle-2">
-       </i>
-       Gestión sostenible
-      </div>
-     </div>
-    </div>
-    <div class="about-art">
-     <img alt="Identidad corporativa Boutet" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/logo01.png"/>
-    </div>
-   </div>
-  </section>
-  <section class="section" id="courses">
-   <div class="container">
-    <div class="section-head">
-     <div class="eyebrow">
-      Formación especializada
-     </div>
-     <h2>
-      Aprende con
-      <span class="accent">
-       Academia Boutet.
-      </span>
-     </h2>
-     <p>
-      Programas técnicos diseñados para fortalecer competencias en hidrología, SIG, teledetección, automatización y análisis ambiental.
-     </p>
-    </div>
-    <div class="courses-grid">
-     <article class="course-card">
-      <div class="course-top">
-       <div class="service-icon">
-        <i data-lucide="droplets">
-        </i>
-       </div>
-       <small>
-        Programa 01
-       </small>
-      </div>
-      <h3>
-       Modelación Hidrológica y Cuencas con SIG
-      </h3>
-      <div class="course-meta">
-       <span>
-        40 horas
-       </span>
-       <span>
-        Avanzado
-       </span>
-      </div>
-      <ul>
-       <li>
-        Modelación hidrológica e hidráulica
-       </li>
-       <li>
-        Análisis de cuencas
-       </li>
-       <li>
-        Simulación de eventos extremos
-       </li>
-      </ul>
-      <a class="btn btn-primary" href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Modelaci%C3%B3n%20Hidrol%C3%B3gica%20y%20Cuencas%20con%20SIG">
-       Solicitar información
-       <i class="icon" data-lucide="arrow-up-right">
-       </i>
-      </a>
-     </article>
-     <article class="course-card">
-      <div class="course-top">
-       <div class="service-icon">
-        <i data-lucide="map">
-        </i>
-       </div>
-       <small>
-        Programa 02
-       </small>
-      </div>
-      <h3>
-       SIG Profesional y Análisis Espacial
-      </h3>
-      <div class="course-meta">
-       <span>
-        30 horas
-       </span>
-       <span>
-        Intermedio
-       </span>
-      </div>
-      <ul>
-       <li>
-        Análisis espacial ambiental
-       </li>
-       <li>
-        Cartografía técnica y comunicación visual
-       </li>
-       <li>
-        Manejo de bases de datos geográficas
-       </li>
-      </ul>
-      <a class="btn btn-primary" href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20SIG%20Profesional%20y%20An%C3%A1lisis%20Espacial">
-       Solicitar información
-       <i class="icon" data-lucide="arrow-up-right">
-       </i>
-      </a>
-     </article>
-     <article class="course-card">
-      <div class="course-top">
-       <div class="service-icon">
-        <i data-lucide="satellite">
-        </i>
-       </div>
-       <small>
-        Programa 03
-       </small>
-      </div>
-      <h3>
-       Teledetección y Análisis Satelital
-      </h3>
-      <div class="course-meta">
-       <span>
-        32 horas
-       </span>
-       <span>
-        Intermedio
-       </span>
-      </div>
-      <ul>
-       <li>
-        Procesamiento de Sentinel, FIRMS y ERA5
-       </li>
-       <li>
-        Cálculo de índices (NDVI, etc.)
-       </li>
-       <li>
-        Monitoreo de cambios multitemporales
-       </li>
-      </ul>
-      <a class="btn btn-primary" href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Teledetecci%C3%B3n%20y%20An%C3%A1lisis%20Satelital">
-       Solicitar información
-       <i class="icon" data-lucide="arrow-up-right">
-       </i>
-      </a>
-     </article>
-     <article class="course-card">
-      <div class="course-top">
-       <div class="service-icon">
-        <i data-lucide="cpu">
-        </i>
-       </div>
-       <small>
-        Programa 04
-       </small>
-      </div>
-      <h3>
-       Automatización Geoespacial y Data Science Ambiental
-      </h3>
-      <div class="course-meta">
-       <span>
-        36 horas
-       </span>
-       <span>
-        Intermedio
-       </span>
-      </div>
-      <ul>
-       <li>
-        Automatización de flujos SIG
-       </li>
-       <li>
-        Procesamiento de datos ambientales
-       </li>
-       <li>
-        Integración de APIs y analítica avanzada
-       </li>
-      </ul>
-      <a class="btn btn-primary" href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Automatizaci%C3%B3n%20Geoespacial%20y%20Data%20Science%20Ambiental">
-       Solicitar información
-       <i class="icon" data-lucide="arrow-up-right">
-       </i>
-      </a>
-     </article>
-     <article class="course-card">
-      <div class="course-top">
-       <div class="service-icon">
-        <i data-lucide="cloud-sun">
-        </i>
-       </div>
-       <small>
-        Programa 05
-       </small>
-      </div>
-      <h3>
-       Modelación Climática y Riesgo Ambiental
-      </h3>
-      <div class="course-meta">
-       <span>
-        28 horas
-       </span>
-       <span>
-        Avanzado
-       </span>
-      </div>
-      <ul>
-       <li>
-        Escenarios climáticos
-       </li>
-       <li>
-        Riesgo hidrometeorológico
-       </li>
-       <li>
-        Mapas de riesgo
-       </li>
-      </ul>
-      <a class="btn btn-primary" href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Modelaci%C3%B3n%20Clim%C3%A1tica%20y%20Riesgo%20Ambiental">
-       Solicitar información
-       <i class="icon" data-lucide="arrow-up-right">
-       </i>
-      </a>
-     </article>
-     <article class="course-card">
-      <div class="course-top">
-       <div class="service-icon">
-        <i data-lucide="presentation">
-        </i>
-       </div>
-       <small>
-        Programa 06
-       </small>
-      </div>
-      <h3>
-       Dashboards, StoryMaps y Comunicación Ambiental
-      </h3>
-      <div class="course-meta">
-       <span>
-        24 horas
-       </span>
-       <span>
-        Básico - Intermedio
-       </span>
-      </div>
-      <ul>
-       <li>
-        Diseño de dashboards
-       </li>
-       <li>
-        Narrativas geográficas
-       </li>
-       <li>
-        Visualización efectiva de datos
-       </li>
-      </ul>
-      <a class="btn btn-primary" href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Dashboards%2C%20StoryMaps%20y%20Comunicaci%C3%B3n%20Ambiental">
-       Solicitar información
-       <i class="icon" data-lucide="arrow-up-right">
-       </i>
-      </a>
-     </article>
-    </div>
-   </div>
-  </section>
-  <section class="section projects" id="projects">
-   <div class="container">
-    <div class="section-head">
-     <div class="eyebrow">
-      Capacidades aplicadas
-     </div>
-     <h2>
-      De los datos al
-      <span style="color:#a9e9bd">
-       territorio.
-      </span>
-     </h2>
-     <p>
-      Áreas de trabajo que integran observación, análisis y modelación para apoyar decisiones ambientales.
-     </p>
-    </div>
-    <div class="projects-grid">
-     <article class="project-card">
-      <div class="project-visual">
-       <i data-lucide="map">
-       </i>
-      </div>
-      <div class="project-copy">
-       <h3>
-        Cartografía y análisis territorial
-       </h3>
-       <p>
-        Integración de información geoespacial, mapas temáticos y evaluación de escenarios.
-       </p>
-      </div>
-     </article>
-     <article class="project-card">
-      <div class="project-visual">
-       <i data-lucide="waves">
-       </i>
-      </div>
-      <div class="project-copy">
-       <h3>
-        Modelación hidrológica
-       </h3>
-       <p>
-        Delimitación de cuencas, análisis de escorrentía y evaluación de riesgos.
-       </p>
-      </div>
-     </article>
-     <article class="project-card">
-      <div class="project-visual">
-       <i data-lucide="satellite">
-       </i>
-      </div>
-      <div class="project-copy">
-       <h3>
-        Monitoreo satelital
-       </h3>
-       <p>
-        Interpretación multitemporal de coberturas, vegetación y variables ambientales.
-       </p>
-      </div>
-     </article>
-    </div>
-   </div>
-  </section>
-  <section class="tech" id="technologies">
-   <div class="container section-head">
-    <div class="eyebrow">
-     Nuestro ecosistema
-    </div>
-    <h2>
-     Tecnologías geoespaciales y
-     <span class="accent">
-      herramientas que utilizamos.
-     </span>
-    </h2>
-   </div>
-   <div aria-label="Tecnologías utilizadas" class="marquee">
-    <div class="marquee-track">
-     <div class="logo-set">
-      <div class="logo-tile">
-       <img alt="ArcGIS Pro" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcGISPro.png"/>
-       <span>
-        ArcGIS Pro
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="ArcGIS Online" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcgisOnline.png"/>
-       <span>
-        ArcGIS Online
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="ArcGIS Velocity" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcGISVelocity.png"/>
-       <span>
-        ArcGIS Velocity
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Google Earth Engine" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/GEE.png"/>
-       <span>
-        Google Earth Engine
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Site Scan" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/SITESCAN.png"/>
-       <span>
-        Site Scan
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="ChatGPT" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/CHAT.png"/>
-       <span>
-        ChatGPT
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Google Colab" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Colab.png"/>
-       <span>
-        Google Colab
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Copernicus" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Copernicus.png"/>
-       <span>
-        Copernicus
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="DJI" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/DJI.png"/>
-       <span>
-        DJI
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Gemini" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Gemini.png"/>
-       <span>
-        Gemini
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Jupyter" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Jupyter.png"/>
-       <span>
-        Jupyter
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="NASA" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/NASA.png"/>
-       <span>
-        NASA
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="PIX4D" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/PIX4D.png"/>
-       <span>
-        PIX4D
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Python" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Python.png"/>
-       <span>
-        Python
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Visual Studio Code" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/VISUAL.png"/>
-       <span>
-        Visual Studio Code
-       </span>
-      </div>
-     </div>
-     <div aria-hidden="true" class="logo-set">
-      <div class="logo-tile">
-       <img alt="ArcGIS Pro" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcGISPro.png"/>
-       <span>
-        ArcGIS Pro
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="ArcGIS Online" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcgisOnline.png"/>
-       <span>
-        ArcGIS Online
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="ArcGIS Velocity" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcGISVelocity.png"/>
-       <span>
-        ArcGIS Velocity
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Google Earth Engine" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/GEE.png"/>
-       <span>
-        Google Earth Engine
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Site Scan" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/SITESCAN.png"/>
-       <span>
-        Site Scan
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="ChatGPT" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/CHAT.png"/>
-       <span>
-        ChatGPT
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Google Colab" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Colab.png"/>
-       <span>
-        Google Colab
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Copernicus" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Copernicus.png"/>
-       <span>
-        Copernicus
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="DJI" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/DJI.png"/>
-       <span>
-        DJI
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Gemini" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Gemini.png"/>
-       <span>
-        Gemini
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Jupyter" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Jupyter.png"/>
-       <span>
-        Jupyter
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="NASA" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/NASA.png"/>
-       <span>
-        NASA
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="PIX4D" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/PIX4D.png"/>
-       <span>
-        PIX4D
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Python" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Python.png"/>
-       <span>
-        Python
-       </span>
-      </div>
-      <div class="logo-tile">
-       <img alt="Visual Studio Code" loading="lazy" onerror="this.style.display='none'" src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/VISUAL.png"/>
-       <span>
-        Visual Studio Code
-       </span>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section>
-  <section class="section contact" id="contact">
-   <div class="container contact-grid">
-    <div>
-     <div class="eyebrow" style="color:#a7e9bb">
-      Conversemos
-     </div>
-     <h2>
-      ¿Tienes un proyecto en mente?
-     </h2>
-     <p>
-      Estamos aquí para ayudarte a convertir desafíos ambientales en soluciones concretas.
-     </p>
-     <div class="contact-item">
-      <i class="icon" data-lucide="map-pin">
-      </i>
-      Panamá · Chiriquí y Ciudad de Panamá
-     </div>
-     <div class="contact-item">
-      <i class="icon" data-lucide="mail">
-      </i>
-      <a href="mailto:boutet.engineering@gmail.com">
-       boutet.engineering@gmail.com
-      </a>
-     </div>
-     <p>
-      Cuéntanos qué necesitas y nos pondremos en contacto contigo.
-     </p>
-    </div>
-    <form action="https://formsubmit.co/boutet.engineering@gmail.com" class="contact-form" method="POST">
-     <input name="_subject" type="hidden" value="Nuevo contacto desde Boutet Web"/>
-     <input name="_captcha" type="hidden" value="true"/>
-     <input autocomplete="off" name="_honey" style="display:none" tabindex="-1" type="text"/>
-     <label class="field">
-      <span>
-       Nombre completo
-      </span>
-      <input autocomplete="name" name="name" placeholder="Tu nombre" required=""/>
-     </label>
-     <label class="field">
-      <span>
-       Correo electrónico
-      </span>
-      <input autocomplete="email" name="email" placeholder="nombre@correo.com" required="" type="email"/>
-     </label>
-     <label class="field">
-      <span>
-       Mensaje
-      </span>
-      <textarea name="message" placeholder="Cuéntanos sobre tu proyecto..." required="" rows="5"></textarea>
-     </label>
-     <button class="btn btn-primary" type="submit">
-      Enviar mensaje
-      <i class="icon" data-lucide="send">
-      </i>
-     </button>
-    </form>
-   </div>
-  </section>
-  <footer class="footer">
-   <div class="container">
-    <div class="footer-grid">
-     <div>
-      <h3>
-       Boutet Environmental
-      </h3>
-      <p>
-       Engineering &amp; Consulting
-      </p>
-      <p>
-       Ingeniería ambiental, innovación geoespacial y soluciones sostenibles para el territorio.
-      </p>
-     </div>
-     <div>
-      <h4>
-       Explorar
-      </h4>
-      <ul>
-       <li>
-        <a href="#services">
-         Servicios
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0e241b">
+
+<title>Boutet Environmental | Ingeniería, SIG y Tecnología</title>
+
+<meta name="description" content="Boutet Environmental Engineering & Consulting. Consultoría en hidrología, SIG, teledetección, modelación climática y gestión ambiental en Panamá.">
+
+<link rel="icon" type="image/png" href="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/logo01.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<script defer src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+
+<!-- Precargar la imagen principal -->
+<link rel="preload" as="image" href="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/portada-boutet.png?v=20261105">
+
+<style>
+
+/* ========================================
+   BOUTET WEB 2.0
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+:root {
+    --forest: #0e241b;
+    --green: #168548;
+    --mint: #cce9d6;
+    --paper: #f6f8f5;
+    --ink: #18251f;
+    --muted: #64736b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Syne', sans-serif;
+    line-height: 1.12;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: min(1180px, calc(100% - 40px));
+    margin: auto;
+}
+
+.section {
+    padding: 104px 0;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--green);
+    font-size: 0.77rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+    height: 2px;
+    width: 24px;
+    background: currentColor;
+}
+
+.section-head {
+    max-width: 760px;
+    margin: 0 auto 44px;
+    text-align: center;
+}
+
+.section-head h2 {
+    font-size: clamp(2rem, 4.2vw, 3.25rem);
+    margin: 16px 0;
+}
+
+.section-head p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.accent {
+    color: var(--green);
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 23px;
+    border-radius: 9px;
+    font-weight: 800;
+    transition: 0.25s;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0d6b39;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    color: white;
+    border-color: rgba(255,255,255,0.57);
+    background: rgba(255,255,255,0.07);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.17);
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   NAVEGACIÓN
+======================================== */
+
+.nav {
+    height: 84px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255,254,251,0.96);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid #e6ebe6;
+}
+
+.nav-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: auto;
+    height: 62px;
+    max-width: 190px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.nav-links a {
+    font-weight: 700;
+    font-size: 0.89rem;
+    color: #34443b;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-cta {
+    padding: 11px 17px;
+    background: var(--forest);
+    color: white !important;
+    border-radius: 7px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--forest);
+}
+
+/* ========================================
+   PORTADA PRINCIPAL
+   IMAGEN CORREGIDA
+======================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 720px;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 135px 0 95px;
+
+    /* Imagen real de tu repositorio */
+    background-color: #0e241b;
+
+    background-image: url("https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/portada-boutet.png?v=20261105");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* El degradado va encima, sin ocultar la imagen */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(5,28,20,0.78) 0%,
+        rgba(5,28,20,0.53) 38%,
+        rgba(5,28,20,0.17) 72%,
+        rgba(5,28,20,0.04) 100%
+    );
+}
+
+/* Sombra inferior para profundidad */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background: linear-gradient(
+        0deg,
+        rgba(5,26,18,0.40),
+        transparent 40%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero .eyebrow {
+    color: #a9f0c2;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 6.2vw, 5.6rem);
+    max-width: 900px;
+    letter-spacing: -0.045em;
+    margin: 20px 0 24px;
+    text-shadow: 0 3px 20px rgba(0,0,0,0.22);
+}
+
+.hero h1 span {
+    color: #a6e4b8;
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: clamp(1rem, 1.8vw, 1.24rem);
+    line-height: 1.8;
+    color: #e4f0e8;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.hero-bottom {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 68px;
+    color: #e1f2e7;
+    font-size: 0.87rem;
+}
+
+.hero-bottom span {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+
+.hero-bottom svg {
+    color: #9fe6ba;
+}
+
+/* ========================================
+   ESTADÍSTICAS
+======================================== */
+
+.stats {
+    background: var(--forest);
+    color: white;
+    padding: 28px 0;
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+}
+
+.stat {
+    padding: 10px 25px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.stat:last-child {
+    border: 0;
+}
+
+.stat strong {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.1rem;
+    display: block;
+    color: #a5e5b9;
+}
+
+.stat small {
+    color: #d3e0d6;
+}
+
+/* ========================================
+   SERVICIOS
+======================================== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+}
+
+.service-card,
+.course-card,
+.project-card {
+    background: white;
+    border: 1px solid #e2eae3;
+    border-radius: 15px;
+    box-shadow: 0 8px 35px rgba(23,54,38,0.035);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.service-card:hover,
+.course-card:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(23,54,38,0.10);
+}
+
+.service-card {
+    padding: 30px 25px;
+}
+
+.service-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #e7f5eb;
+    color: var(--green);
+}
+
+.service-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.service-card h3 {
+    font-size: 1.15rem;
+    min-height: 76px;
+    margin: 24px 0 12px;
+}
+
+.service-card p,
+.course-card li,
+.project-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 0.94rem;
+}
+
+/* ========================================
+   NOSOTROS
+======================================== */
+
+.about {
+    background: #eaf3ec;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.about h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.about p {
+    color: #53665a;
+    line-height: 1.85;
+}
+
+.about-art {
+    min-height: 370px;
+    background: linear-gradient(145deg,#103c2b,#1c8050);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-art::before {
+    content: "";
+    position: absolute;
+    inset: -25%;
+    background: repeating-radial-gradient(
+        ellipse at 70% 60%,
+        transparent 0 24px,
+        rgba(255,255,255,0.09) 25px 26px
+    );
+    transform: rotate(-20deg);
+}
+
+.about-art img {
+    position: relative;
+    width: min(65%,330px);
+    filter: drop-shadow(0 18px 28px rgba(0,30,22,0.56));
+    background: rgba(255,255,255,0.94);
+    border-radius: 20px;
+    padding: 22px;
+}
+
+.about-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.about-points div {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.91rem;
+}
+
+.about-points svg {
+    color: var(--green);
+    vertical-align: middle;
+    margin-right: 7px;
+}
+
+/* ========================================
+   CURSOS
+======================================== */
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.course-card {
+    padding: 27px;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.course-top .service-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.course-top small {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--green);
+}
+
+.course-card h3 {
+    font-size: 1.28rem;
+    min-height: 65px;
+    margin: 0 0 17px;
+}
+
+.course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 17px;
+}
+
+.course-meta span {
+    background: #edf5ef;
+    border-radius: 100px;
+    padding: 7px 10px;
+    font-size: 0.77rem;
+    font-weight: 700;
+    color: #366449;
+}
+
+.course-card ul {
+    padding-left: 20px;
+    margin: 0 0 22px;
+    flex: 1;
+}
+
+.course-card li {
+    margin-bottom: 9px;
+}
+
+.course-card .btn {
+    width: 100%;
+    padding: 12px;
+}
+
+/* ========================================
+   PROYECTOS
+======================================== */
+
+.projects {
+    background: var(--forest);
+    color: white;
+}
+
+.projects .section-head p {
+    color: #bdd1c3;
+}
+
+.projects .eyebrow {
+    color: #9ee6b6;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.project-card {
+    background: #173b2b;
+    border-color: rgba(255,255,255,0.13);
+    overflow: hidden;
+}
+
+.project-visual {
+    height: 160px;
+    background: radial-gradient(
+        circle at 80% 30%,
+        #4b9d69,
+        #123e2b 60%
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.project-visual::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-radial-gradient(
+        ellipse at 50% 50%,
+        transparent 0 20px,
+        rgba(255,255,255,0.1) 21px 22px
+    );
+}
+
+.project-visual svg {
+    width: 65px;
+    height: 65px;
+    color: #b9edca;
+    position: relative;
+}
+
+.project-copy {
+    padding: 23px;
+}
+
+.project-card h3 {
+    font-size: 1.17rem;
+}
+
+.project-card p {
+    color: #c4d7ca;
+}
+
+/* ========================================
+   CARRUSEL DE TECNOLOGÍAS
+======================================== */
+
+.tech {
+    background: #f3f8f3;
+    padding: 76px 0;
+    overflow: hidden;
+}
+
+.tech h2 {
+    text-align: center;
+    font-size: clamp(1.6rem,3.3vw,2.5rem);
+    margin: 14px 0 35px;
+}
+
+.marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 6%,
+        #000 94%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        90deg,
+        transparent,
+        #000 6%,
+        #000 94%,
+        transparent
+    );
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 48s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.logo-set {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px;
+    flex-shrink: 0;
+}
+
+.logo-tile {
+    width: 150px;
+    height: 105px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    background: white;
+    border: 1px solid #e1ebe3;
+    border-radius: 13px;
+    padding: 12px;
+}
+
+.logo-tile img {
+    height: 54px;
+    width: 110px;
+    object-fit: contain;
+}
+
+.logo-tile span {
+    font-size: 0.72rem;
+    color: #53685a;
+    font-weight: 700;
+    text-align: center;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ========================================
+   CONTACTO
+======================================== */
+
+.contact {
+    background: linear-gradient(130deg,#0b2b1e,#14563b);
+    color: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+}
+
+.contact h2 {
+    font-size: clamp(2rem,4vw,3rem);
+}
+
+.contact p {
+    line-height: 1.8;
+    color: #c9dfd0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 20px 0;
+    color: #e0f1e5;
+    overflow-wrap: anywhere;
+}
+
+.contact-item svg {
+    color: #9de5b7;
+}
+
+.contact-form {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 32px;
+    border-radius: 17px;
+}
+
+.field {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.field span {
+    display: block;
+    font-size: 0.82rem;
+    margin-bottom: 7px;
+    font-weight: 700;
+}
+
+.field input,
+.field textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.93);
+    padding: 13px;
+    color: #14271c;
+    outline: none;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #73e2a1;
+    box-shadow: 0 0 0 3px rgba(115,226,161,0.2);
+}
+
+.contact-form .btn {
+    width: 100%;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+    background: #091b13;
+    color: #c4d5ca;
+    padding: 54px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer h3,
+.footer h4 {
+    color: white;
+}
+
+.footer p,
+.footer a {
+    line-height: 1.8;
+    color: #b9c9be;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer li {
+    margin: 8px 0;
+}
+
+.copyright {
+    margin-top: 35px;
+    border-top: 1px solid rgba(255,255,255,0.13);
+    padding-top: 18px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #a9b9ae;
+}
+
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .services-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .courses-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about-grid {
+        gap: 30px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+}
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 760px) {
+
+    .nav {
+        height: 74px;
+    }
+
+    .brand img {
+        height: 55px;
+        max-width: 160px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 22px;
+        box-shadow: 0 20px 30px rgba(0,0,0,0.13);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 13px 8px;
+    }
+
+    .nav-cta {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    /* Portada móvil */
+
+    .hero {
+        min-height: 740px;
+        padding: 125px 0 75px;
+        background-position: 62% center;
+    }
+
+    .hero::before {
+        background: linear-gradient(
+            90deg,
+            rgba(5,28,20,0.84),
+            rgba(5,28,20,0.48)
+        );
+    }
+
+    .hero-bottom {
+        gap: 14px;
+        margin-top: 45px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-art {
+        min-height: 300px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-grid {
+        gap: 0;
+    }
+
+    .stat {
+        padding: 10px;
+    }
+
+    .stat strong {
+        font-size: 1.55rem;
+    }
+
+    .stat small {
+        font-size: 0.72rem;
+    }
+
+    .logo-tile {
+        width: 125px;
+        height: 96px;
+    }
+
+    .logo-tile img {
+        height: 46px;
+        width: 95px;
+    }
+}
+
+@media (max-width: 530px) {
+
+    .container {
+        width: calc(100% - 30px);
+    }
+
+    .hero h1 {
+        font-size: clamp(2.35rem,10vw,3.4rem);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .services-grid,
+    .courses-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card h3,
+    .course-card h3 {
+        min-height: 0;
+    }
+
+    .about-points {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .stat strong {
+        font-size: 1.35rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .marquee-track {
+        animation: none;
+    }
+
+    .btn,
+    .service-card,
+    .course-card,
+    .project-card {
+        transition: none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ========================================
+     NAVEGACIÓN
+======================================== -->
+
+<nav class="nav">
+
+    <div class="container nav-inner">
+
+        <a href="#home" class="brand" aria-label="Boutet - Inicio">
+
+            <img
+                src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/logo01.png"
+                alt="Boutet Environmental Engineering"
+            >
+
         </a>
-       </li>
-       <li>
-        <a href="#about">
-         Nosotros
-        </a>
-       </li>
-       <li>
-        <a href="#courses">
-         Cursos
-        </a>
-       </li>
-       <li>
-        <a href="#projects">
-         Proyectos
-        </a>
-       </li>
-      </ul>
-     </div>
-     <div>
-      <h4>
-       Contacto
-      </h4>
-      <p>
-       <a href="mailto:boutet.engineering@gmail.com">
-        boutet.engineering@gmail.com
-       </a>
-      </p>
-      <p>
-       Panamá
-      </p>
-     </div>
+
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Abrir menú"
+            aria-controls="nav-links"
+            aria-expanded="false"
+        >
+            <i data-lucide="menu"></i>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+
+            <a href="#home">Inicio</a>
+            <a href="#services">Servicios</a>
+            <a href="#about">Nosotros</a>
+            <a href="#courses">Cursos</a>
+            <a href="#projects">Proyectos</a>
+            <a href="#technologies">Tecnologías</a>
+            <a href="#contact" class="nav-cta">Contáctanos</a>
+
+        </div>
+
     </div>
-    <div class="copyright">
-     ©
-     <span id="year">
-     </span>
-     Boutet Environmental Engineering &amp; Consulting. Todos los derechos reservados.
+
+</nav>
+
+
+<!-- ========================================
+     PORTADA PRINCIPAL
+======================================== -->
+
+<section id="home" class="hero">
+
+    <div class="container hero-content">
+
+        <div class="eyebrow">
+            Ingeniería · Geociencias · Innovación
+        </div>
+
+        <h1>
+            Soluciones técnicas para
+            <span>desafíos ambientales reales.</span>
+        </h1>
+
+        <p>
+            Consultoría integral en hidrología, geociencia,
+            sistemas de información geográfica, análisis climático,
+            modelación y gestión ambiental.
+            Convertimos datos en decisiones.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="#services" class="btn btn-primary">
+                Explorar servicios
+                <i data-lucide="arrow-up-right" class="icon"></i>
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Hablemos de tu proyecto
+                <i data-lucide="arrow-right" class="icon"></i>
+            </a>
+
+        </div>
+
+        <div class="hero-bottom">
+
+            <span>
+                <i data-lucide="map-pin" class="icon"></i>
+                Panamá
+            </span>
+
+            <span>
+                <i data-lucide="satellite" class="icon"></i>
+                Tecnología geoespacial
+            </span>
+
+            <span>
+                <i data-lucide="leaf" class="icon"></i>
+                Soluciones sostenibles
+            </span>
+
+        </div>
+
     </div>
-   </div>
-  </footer>
-  <script>
-   document.addEventListener('DOMContentLoaded',()=>{if(window.lucide)lucide.createIcons();document.getElementById('year').textContent=new Date().getFullYear();const toggle=document.getElementById('menu-toggle'),links=document.getElementById('nav-links');toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.innerHTML=open?'<i data-lucide="x"></i>':'<i data-lucide="menu"></i>';if(window.lucide)lucide.createIcons()});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.innerHTML='<i data-lucide="menu"></i>';if(window.lucide)lucide.createIcons()}));const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){links.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-25% 0px -60% 0px'});document.querySelectorAll('section[id]').forEach(s=>obs.observe(s))});
-  </script>
- </body>
+
+</section>
+
+
+<!-- ========================================
+     ESTADÍSTICAS
+======================================== -->
+
+<div class="stats">
+
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <strong>7+</strong>
+            <small>Años de experiencia</small>
+        </div>
+
+        <div class="stat">
+            <strong>20+</strong>
+            <small>Proyectos completados</small>
+        </div>
+
+        <div class="stat">
+            <strong>6</strong>
+            <small>Áreas de capacitación</small>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================
+     SERVICIOS
+======================================== -->
+
+<section id="services" class="section">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Lo que hacemos</div>
+
+            <h2>
+                Ingeniería ambiental con
+                <span class="accent">visión tecnológica.</span>
+            </h2>
+
+            <p>
+                Soluciones integrales con enfoque científico y tecnológico
+                para comprender, gestionar y proteger el territorio.
+            </p>
+
+        </div>
+
+        <div class="services-grid">
+
+            <!-- SERVICIO 1 -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    <i data-lucide="droplets"></i>
+                </div>
+
+                <h3>Hidrología y Modelación de Cuencas</h3>
+
+                <p>
+                    Modelación hidrológica e hidráulica,
+                    análisis de cuencas y evaluación de riesgos hídricos.
+                </p>
+
+            </article>
+
+            <!-- SERVICIO 2 -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    <i data-lucide="globe-2"></i>
+                </div>
+
+                <h3>Sistemas de Información Geográfica y Automatización</h3>
+
+                <p>
+                    Integración de datos, análisis espacial
+                    y automatización de procesos geoespaciales.
+                </p>
+
+            </article>
+
+            <!-- SERVICIO 3 -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    <i data-lucide="satellite"></i>
+                </div>
+
+                <h3>Análisis Satelital y Modelación Climática</h3>
+
+                <p>
+                    Procesamiento de imágenes, sensores remotos,
+                    datos FIRMS y análisis climático.
+                </p>
+
+            </article>
+
+            <!-- SERVICIO 4 -->
+
+            <article class="service-card">
+
+                <div class="service-icon">
+                    <i data-lucide="trees"></i>
+                </div>
+
+                <h3>Ingeniería Forestal y Gestión de Ecosistemas</h3>
+
+                <p>
+                    Planificación forestal,
+                    manejo sostenible y conservación ecológica.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     NOSOTROS
+======================================== -->
+
+<section id="about" class="section about">
+
+    <div class="container about-grid">
+
+        <div>
+
+            <div class="eyebrow">Quiénes somos</div>
+
+            <h2>
+                Conocimiento técnico.
+                <span class="accent">Impacto ambiental.</span>
+            </h2>
+
+            <p>
+                Con más de 7 años de experiencia, Boutet Environmental
+                Engineering se ha posicionado como un referente en
+                consultoría especializada en hidrología, gestión de
+                cuencas, SIG y servicios forestales.
+            </p>
+
+            <p>
+                Nuestro equipo combina experiencia técnica,
+                innovación y enfoque sostenible para ofrecer
+                soluciones ambientales de alto impacto.
+            </p>
+
+            <div class="about-points">
+
+                <div>
+                    <i data-lucide="check-circle-2" class="icon"></i>
+                    Enfoque científico
+                </div>
+
+                <div>
+                    <i data-lucide="check-circle-2" class="icon"></i>
+                    Análisis geoespacial
+                </div>
+
+                <div>
+                    <i data-lucide="check-circle-2" class="icon"></i>
+                    Innovación aplicada
+                </div>
+
+                <div>
+                    <i data-lucide="check-circle-2" class="icon"></i>
+                    Gestión sostenible
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="about-art">
+
+            <img
+                src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/logo01.png"
+                alt="Identidad corporativa Boutet"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     CURSOS
+======================================== -->
+
+<section id="courses" class="section">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Formación especializada</div>
+
+            <h2>
+                Aprende con
+                <span class="accent">Academia Boutet.</span>
+            </h2>
+
+            <p>
+                Programas técnicos diseñados para fortalecer competencias
+                en hidrología, SIG, teledetección, automatización
+                y análisis ambiental.
+            </p>
+
+        </div>
+
+        <div class="courses-grid">
+
+            <!-- CURSO 1 -->
+
+            <article class="course-card">
+
+                <div class="course-top">
+                    <div class="service-icon">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <small>Programa 01</small>
+                </div>
+
+                <h3>Modelación Hidrológica y Cuencas con SIG</h3>
+
+                <div class="course-meta">
+                    <span>40 horas</span>
+                    <span>Avanzado</span>
+                </div>
+
+                <ul>
+                    <li>Modelación hidrológica e hidráulica</li>
+                    <li>Análisis de cuencas</li>
+                    <li>Simulación de eventos extremos</li>
+                </ul>
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Modelaci%C3%B3n%20Hidrol%C3%B3gica%20y%20Cuencas%20con%20SIG"
+                >
+                    Solicitar información
+                    <i data-lucide="arrow-up-right" class="icon"></i>
+                </a>
+
+            </article>
+
+            <!-- CURSO 2 -->
+
+            <article class="course-card">
+
+                <div class="course-top">
+                    <div class="service-icon">
+                        <i data-lucide="map"></i>
+                    </div>
+                    <small>Programa 02</small>
+                </div>
+
+                <h3>SIG Profesional y Análisis Espacial</h3>
+
+                <div class="course-meta">
+                    <span>30 horas</span>
+                    <span>Intermedio</span>
+                </div>
+
+                <ul>
+                    <li>Análisis espacial ambiental</li>
+                    <li>Cartografía técnica y comunicación visual</li>
+                    <li>Manejo de bases de datos geográficas</li>
+                </ul>
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20SIG%20Profesional%20y%20An%C3%A1lisis%20Espacial"
+                >
+                    Solicitar información
+                    <i data-lucide="arrow-up-right" class="icon"></i>
+                </a>
+
+            </article>
+
+            <!-- CURSO 3 -->
+
+            <article class="course-card">
+
+                <div class="course-top">
+                    <div class="service-icon">
+                        <i data-lucide="satellite"></i>
+                    </div>
+                    <small>Programa 03</small>
+                </div>
+
+                <h3>Teledetección y Análisis Satelital</h3>
+
+                <div class="course-meta">
+                    <span>32 horas</span>
+                    <span>Intermedio</span>
+                </div>
+
+                <ul>
+                    <li>Procesamiento de Sentinel, FIRMS y ERA5</li>
+                    <li>Cálculo de índices (NDVI, etc.)</li>
+                    <li>Monitoreo de cambios multitemporales</li>
+                </ul>
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Teledetecci%C3%B3n%20y%20An%C3%A1lisis%20Satelital"
+                >
+                    Solicitar información
+                    <i data-lucide="arrow-up-right" class="icon"></i>
+                </a>
+
+            </article>
+
+            <!-- CURSO 4 -->
+
+            <article class="course-card">
+
+                <div class="course-top">
+                    <div class="service-icon">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                    <small>Programa 04</small>
+                </div>
+
+                <h3>Automatización Geoespacial y Data Science Ambiental</h3>
+
+                <div class="course-meta">
+                    <span>36 horas</span>
+                    <span>Intermedio</span>
+                </div>
+
+                <ul>
+                    <li>Automatización de flujos SIG</li>
+                    <li>Procesamiento de datos ambientales</li>
+                    <li>Integración de APIs y analítica avanzada</li>
+                </ul>
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Automatizaci%C3%B3n%20Geoespacial%20y%20Data%20Science%20Ambiental"
+                >
+                    Solicitar información
+                    <i data-lucide="arrow-up-right" class="icon"></i>
+                </a>
+
+            </article>
+
+            <!-- CURSO 5 -->
+
+            <article class="course-card">
+
+                <div class="course-top">
+                    <div class="service-icon">
+                        <i data-lucide="cloud-sun"></i>
+                    </div>
+                    <small>Programa 05</small>
+                </div>
+
+                <h3>Modelación Climática y Riesgo Ambiental</h3>
+
+                <div class="course-meta">
+                    <span>28 horas</span>
+                    <span>Avanzado</span>
+                </div>
+
+                <ul>
+                    <li>Escenarios climáticos</li>
+                    <li>Riesgo hidrometeorológico</li>
+                    <li>Mapas de riesgo</li>
+                </ul>
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Modelaci%C3%B3n%20Clim%C3%A1tica%20y%20Riesgo%20Ambiental"
+                >
+                    Solicitar información
+                    <i data-lucide="arrow-up-right" class="icon"></i>
+                </a>
+
+            </article>
+
+            <!-- CURSO 6 -->
+
+            <article class="course-card">
+
+                <div class="course-top">
+                    <div class="service-icon">
+                        <i data-lucide="presentation"></i>
+                    </div>
+                    <small>Programa 06</small>
+                </div>
+
+                <h3>Dashboards, StoryMaps y Comunicación Ambiental</h3>
+
+                <div class="course-meta">
+                    <span>24 horas</span>
+                    <span>Básico - Intermedio</span>
+                </div>
+
+                <ul>
+                    <li>Diseño de dashboards</li>
+                    <li>Narrativas geográficas</li>
+                    <li>Visualización efectiva de datos</li>
+                </ul>
+
+                <a
+                    class="btn btn-primary"
+                    href="mailto:boutet.engineering@gmail.com?subject=Consulta%20sobre%20Dashboards%2C%20StoryMaps%20y%20Comunicaci%C3%B3n%20Ambiental"
+                >
+                    Solicitar información
+                    <i data-lucide="arrow-up-right" class="icon"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     PROYECTOS
+======================================== -->
+
+<section id="projects" class="section projects">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">
+                Soluciones aplicadas
+            </div>
+
+            <h2>
+                Ingeniería y tecnología
+                <span style="color:#a5e5b9">en acción.</span>
+            </h2>
+
+            <p>
+                Aplicaciones de análisis geoespacial,
+                modelación y monitoreo ambiental.
+            </p>
+
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project-card">
+
+                <div class="project-visual">
+                    <i data-lucide="map"></i>
+                </div>
+
+                <div class="project-copy">
+                    <h3>Cartografía y análisis territorial</h3>
+
+                    <p>
+                        Integración de información geoespacial,
+                        mapas temáticos y evaluación de escenarios.
+                    </p>
+                </div>
+
+            </article>
+
+            <article class="project-card">
+
+                <div class="project-visual">
+                    <i data-lucide="droplets"></i>
+                </div>
+
+                <div class="project-copy">
+                    <h3>Modelación hidrológica</h3>
+
+                    <p>
+                        Delimitación de cuencas,
+                        análisis de escorrentía y evaluación de riesgos.
+                    </p>
+                </div>
+
+            </article>
+
+            <article class="project-card">
+
+                <div class="project-visual">
+                    <i data-lucide="satellite"></i>
+                </div>
+
+                <div class="project-copy">
+                    <h3>Monitoreo satelital</h3>
+
+                    <p>
+                        Interpretación multitemporal de coberturas,
+                        vegetación y variables ambientales.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     TECNOLOGÍAS Y SOFTWARE
+======================================== -->
+
+<section id="technologies" class="tech">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">
+                Nuestro ecosistema tecnológico
+            </div>
+
+            <h2>
+                Tecnologías y Plataformas
+                <span class="accent">Geoespaciales</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="marquee">
+
+        <div class="marquee-track" id="marquee-track">
+
+            <div class="logo-set" id="original-logos">
+
+                <!-- ArcGIS Pro -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcGISPro.png"
+                        alt="ArcGIS Pro"
+                        loading="lazy"
+                    >
+                    <span>ArcGIS Pro</span>
+                </div>
+
+                <!-- ArcGIS Online -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcgisOnline.png"
+                        alt="ArcGIS Online"
+                        loading="lazy"
+                    >
+                    <span>ArcGIS Online</span>
+                </div>
+
+                <!-- ArcGIS Velocity -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/ArcGISVelocity.png"
+                        alt="ArcGIS Velocity"
+                        loading="lazy"
+                    >
+                    <span>ArcGIS Velocity</span>
+                </div>
+
+                <!-- Google Earth Engine -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/GEE.png"
+                        alt="Google Earth Engine"
+                        loading="lazy"
+                    >
+                    <span>Google Earth Engine</span>
+                </div>
+
+                <!-- Site Scan -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/SITESCAN.png"
+                        alt="Site Scan"
+                        loading="lazy"
+                    >
+                    <span>Site Scan</span>
+                </div>
+
+                <!-- ChatGPT -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/CHAT.png"
+                        alt="ChatGPT"
+                        loading="lazy"
+                    >
+                    <span>ChatGPT</span>
+                </div>
+
+                <!-- Google Colab -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Colab.png"
+                        alt="Google Colab"
+                        loading="lazy"
+                    >
+                    <span>Google Colab</span>
+                </div>
+
+                <!-- Copernicus -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Copernicus.png"
+                        alt="Copernicus"
+                        loading="lazy"
+                    >
+                    <span>Copernicus</span>
+                </div>
+
+                <!-- DJI -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/DJI.png"
+                        alt="DJI"
+                        loading="lazy"
+                    >
+                    <span>DJI</span>
+                </div>
+
+                <!-- Gemini -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Gemini.png"
+                        alt="Gemini"
+                        loading="lazy"
+                    >
+                    <span>Gemini</span>
+                </div>
+
+                <!-- Jupyter -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Jupyter.png"
+                        alt="Jupyter Notebook"
+                        loading="lazy"
+                    >
+                    <span>Jupyter Notebook</span>
+                </div>
+
+                <!-- NASA -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/NASA.png"
+                        alt="NASA"
+                        loading="lazy"
+                    >
+                    <span>NASA</span>
+                </div>
+
+                <!-- PIX4D -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/PIX4D.png"
+                        alt="PIX4D"
+                        loading="lazy"
+                    >
+                    <span>PIX4D</span>
+                </div>
+
+                <!-- Python -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/Python.png"
+                        alt="Python"
+                        loading="lazy"
+                    >
+                    <span>Python</span>
+                </div>
+
+                <!-- Visual Studio Code -->
+                <div class="logo-tile">
+                    <img
+                        src="https://boutetengineering-maker.github.io/boutetengineering.github.io/assets/img/VISUAL.png"
+                        alt="Visual Studio Code"
+                        loading="lazy"
+                    >
+                    <span>Visual Studio Code</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     CONTACTO
+======================================== -->
+
+<section id="contact" class="section contact">
+
+    <div class="container contact-grid">
+
+        <div>
+
+            <div class="eyebrow" style="color:#a7e9bb">
+                Conversemos
+            </div>
+
+            <h2>
+                ¿Tienes un proyecto en mente?
+            </h2>
+
+            <p>
+                Estamos aquí para ayudarte a convertir
+                desafíos ambientales en soluciones concretas.
+            </p>
+
+            <div class="contact-item">
+
+                <i data-lucide="map-pin" class="icon"></i>
+
+                Panamá · Chiriquí y Ciudad de Panamá
+
+            </div>
+
+            <div class="contact-item">
+
+                <i data-lucide="mail" class="icon"></i>
+
+                <a href="mailto:boutet.engineering@gmail.com">
+                    boutet.engineering@gmail.com
+                </a>
+
+            </div>
+
+            <p>
+                Cuéntanos qué necesitas y nos pondremos
+                en contacto contigo.
+            </p>
+
+        </div>
+
+        <!-- FORMULARIO -->
+
+        <form
+            class="contact-form"
+            action="https://formsubmit.co/boutet.engineering@gmail.com"
+            method="POST"
+        >
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="Nuevo contacto desde Boutet Web"
+            >
+
+            <input
+                type="hidden"
+                name="_captcha"
+                value="true"
+            >
+
+            <input
+                type="text"
+                name="_honey"
+                style="display:none"
+                tabindex="-1"
+                autocomplete="off"
+            >
+
+            <label class="field">
+
+                <span>Nombre completo</span>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Tu nombre"
+                    autocomplete="name"
+                    required
+                >
+
+            </label>
+
+            <label class="field">
+
+                <span>Correo electrónico</span>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="nombre@correo.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </label>
+
+            <label class="field">
+
+                <span>Mensaje</span>
+
+                <textarea
+                    name="message"
+                    rows="5"
+                    placeholder="Cuéntanos sobre tu proyecto..."
+                    required
+                ></textarea>
+
+            </label>
+
+            <button class="btn btn-primary" type="submit">
+
+                Enviar mensaje
+
+                <i data-lucide="send" class="icon"></i>
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>Boutet Environmental</h3>
+
+                <p>Engineering &amp; Consulting</p>
+
+                <p>
+                    Ingeniería ambiental, innovación geoespacial
+                    y soluciones sostenibles para el territorio.
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>Explorar</h4>
+
+                <ul>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#courses">Cursos</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>Contacto</h4>
+
+                <p>
+                    <a href="mailto:boutet.engineering@gmail.com">
+                        boutet.engineering@gmail.com
+                    </a>
+                </p>
+
+                <p>Panamá</p>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © <span id="year"></span>
+            Boutet Environmental Engineering &amp; Consulting.
+            Todos los derechos reservados.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ========================================
+     JAVASCRIPT
+======================================== -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Inicializar iconos
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
+    // Año automático del footer
+    const year = document.getElementById('year');
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+
+    // Menú móvil
+    const toggle = document.getElementById('menu-toggle');
+    const links = document.getElementById('nav-links');
+
+    if (toggle && links) {
+
+        toggle.addEventListener('click', function() {
+
+            const open = links.classList.toggle('open');
+
+            toggle.setAttribute(
+                'aria-expanded',
+                String(open)
+            );
+
+            toggle.innerHTML = open
+                ? '<i data-lucide="x"></i>'
+                : '<i data-lucide="menu"></i>';
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+        });
+
+        links.querySelectorAll('a').forEach(function(link) {
+
+            link.addEventListener('click', function() {
+
+                links.classList.remove('open');
+
+                toggle.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+                toggle.innerHTML = '<i data-lucide="menu"></i>';
+
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+
+            });
+
+        });
+
+    }
+
+    // Carrusel infinito
+    const track = document.getElementById('marquee-track');
+    const originals = document.getElementById('original-logos');
+
+    if (track && originals && track.children.length === 1) {
+
+        const copy = originals.cloneNode(true);
+
+        copy.removeAttribute('id');
+        copy.setAttribute('aria-hidden', 'true');
+
+        copy.querySelectorAll('img').forEach(function(img) {
+            img.alt = '';
+        });
+
+        track.appendChild(copy);
+    }
+
+    // Navegación activa según la sección
+    if ('IntersectionObserver' in window) {
+
+        const navLinks = document.querySelectorAll(
+            '.nav-links a[href^="#"]'
+        );
+
+        const observer = new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        navLinks.forEach(function(link) {
+
+                            link.classList.toggle(
+                                'active',
+                                link.getAttribute('href') === '#' + entry.target.id
+                            );
+
+                        });
+
+                    }
+
+                });
+
+            },
+            {
+                rootMargin: '-25% 0px -60% 0px'
+            }
+        );
+
+        document.querySelectorAll('section[id]').forEach(
+            function(section) {
+                observer.observe(section);
+            }
+        );
+
+    }
+
+});
+
+</script>
+
+</body>
 </html>
